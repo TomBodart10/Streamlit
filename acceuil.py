@@ -22,7 +22,7 @@ recommended_specs = get_recommended_specs()
 
 render_hero(
     "Accueil",
-    "Un convertisseur utile au quotidien pour Kiara.",
+    "Un convertisseur utile au quotidien.",
     (
         "Cette application transforme des données concrètes en décisions plus simples : "
         "coût réel, temps mobilisé, impact d'un abonnement, charge de travail ou lecture d'un texte."
