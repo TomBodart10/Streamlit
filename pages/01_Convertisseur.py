@@ -46,7 +46,7 @@ def render_field(field, conversion_key: str):
     raise ValueError(f"Unsupported field kind: {field.kind}")
 
 
-st.set_page_config(page_title="Convertisseur", page_icon="C", layout="wide")
+st.set_page_config(page_title="Convertisseur", page_icon="🧮", layout="wide")
 inject_global_styles()
 
 family_map = get_family_map()
@@ -56,14 +56,16 @@ render_hero(
     "Convertisseur",
     "Choisir, saisir, comprendre.",
     (
-        "Cette page vous guide vers une conversion utile, affiche seulement les champs necessaires, "
-        "puis presente le resultat de facon claire et exploitable."
+        "Cette page vous guide vers une conversion utile, affiche seulement les champs nécessaires, "
+        "puis présente le résultat de façon claire et exploitable."
     ),
 )
 
 render_section_title(
     "Comment utiliser cette page",
-    "1. Choisissez la famille. 2. Selectionnez la conversion. 3. Entrez vos donnees puis lancez le calcul.",
+    "1. Choisissez la famille.\n"
+    "2. Sélectionnez la conversion.\n"
+    "3. Entrez vos données puis lancez le calcul.",
 )
 
 left_col, right_col = st.columns([1.2, 0.8], gap="large")
@@ -88,7 +90,7 @@ with left_col:
 
     form_values: dict[str, object] = {}
     with st.form(f"form_{selected_spec.key}", border=False):
-        render_section_title("Parametres a renseigner", "Les champs changent automatiquement selon la conversion choisie.")
+        render_section_title("Paramètres à renseigner", "Les champs changent automatiquement selon la conversion choisie.")
         for field in selected_spec.inputs:
             form_values[field.key] = render_field(field, selected_spec.key)
         submitted = st.form_submit_button("Lancer le calcul")
@@ -103,8 +105,8 @@ if "selected_spec" in locals() and submitted:
 
 with right_col:
     render_dark_card(
-        "Conversions recommandees",
-        "Si vous voulez tester rapidement l'app avec des resultats tres parlants, commencez ici.",
+        "Conversions recommandées",
+        "Si vous voulez tester rapidement l'app avec des résultats très parlants, commencez ici.",
         items=[spec.title for spec in recommended_specs],
     )
 
@@ -119,20 +121,20 @@ with right_col:
             with column:
                 st.metric(label, value)
 
-        render_section_title("Comment lire ce resultat")
+        render_section_title("Comment lire ce résultat")
         for insight in result["insights"]:
             st.write(f"- {insight}")
     else:
         render_placeholder(
-            "Resultat en attente",
-            "Renseignez les champs a gauche puis lancez le calcul pour obtenir un resultat principal, des metriques secondaires et une explication rapide.",
+            "Résultat en attente",
+            "Renseignez les champs à gauche puis lancez le calcul pour obtenir un résultat principal, des métriques secondaires et une explication rapide.",
         )
 
-        render_section_title("A quoi vous attendre")
+        render_section_title("À quoi vous attendre")
         preview_cols = st.columns(3)
         with preview_cols[0]:
-            render_light_card("Resultat principal", "Une reponse courte et immediatement comprehensible.")
+            render_light_card("Résultat principal", "Une réponse courte et immédiatement compréhensible.")
         with preview_cols[1]:
-            render_light_card("Indicateurs", "Des chiffres supplementaires pour verifier et contextualiser.")
+            render_light_card("Indicateurs", "Des chiffres supplémentaires pour vérifier et contextualiser.")
         with preview_cols[2]:
-            render_light_card("Interpretation", "Une lecture en langage simple pour comprendre ce que le calcul veut dire.")
+            render_light_card("Interprétation", "Une lecture en langage simple pour comprendre ce que le calcul veut dire.")

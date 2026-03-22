@@ -17,10 +17,10 @@ def inject_global_styles() -> None:
 
         .stApp {
             background:
-                radial-gradient(circle at top left, rgba(197, 225, 255, 0.88), transparent 30%),
-                radial-gradient(circle at top right, rgba(255, 224, 183, 0.76), transparent 28%),
-                linear-gradient(180deg, #f7f4ee 0%, #efebe4 100%);
-            color: #18212b;
+                radial-gradient(circle at top left, rgba(112, 96, 79, 0.18), transparent 30%),
+                radial-gradient(circle at top right, rgba(88, 96, 110, 0.12), transparent 26%),
+                linear-gradient(180deg, #0d0f12 0%, #121418 48%, #181a1e 100%);
+            color: #f3eee7;
         }
 
         .block-container {
@@ -30,11 +30,11 @@ def inject_global_styles() -> None:
         }
 
         .hero-shell {
-            background: rgba(255, 255, 255, 0.76);
-            border: 1px solid rgba(24, 33, 43, 0.08);
+            background: linear-gradient(180deg, rgba(24, 26, 30, 0.92) 0%, rgba(17, 19, 23, 0.94) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 30px;
             padding: 2rem;
-            box-shadow: 0 20px 60px rgba(31, 41, 55, 0.08);
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
             backdrop-filter: blur(10px);
         }
 
@@ -42,8 +42,9 @@ def inject_global_styles() -> None:
             display: inline-block;
             padding: 0.45rem 0.8rem;
             border-radius: 999px;
-            background: #13202c;
-            color: #f6efe5;
+            background: rgba(243, 238, 231, 0.08);
+            border: 1px solid rgba(243, 238, 231, 0.12);
+            color: #f3eee7;
             font-size: 0.78rem;
             font-weight: 700;
             letter-spacing: 0.08em;
@@ -56,7 +57,7 @@ def inject_global_styles() -> None:
             font-size: 3.25rem;
             line-height: 0.96;
             letter-spacing: -0.06em;
-            color: #13202c;
+            color: #f7f3ed;
         }
 
         .hero-copy {
@@ -64,7 +65,7 @@ def inject_global_styles() -> None:
             margin-bottom: 0;
             font-size: 1.05rem;
             line-height: 1.7;
-            color: #425163;
+            color: #b5babf;
             max-width: 780px;
         }
 
@@ -73,50 +74,51 @@ def inject_global_styles() -> None:
             margin-bottom: 0.4rem;
             font-size: 1.08rem;
             font-weight: 800;
-            color: #13202c;
+            color: #f6f1ea !important;
             letter-spacing: -0.02em;
         }
 
         .section-note {
-            color: #5b6877;
+            color: #9aa1a9 !important;
             font-size: 0.96rem;
             margin-bottom: 1rem;
         }
 
         .light-card {
-            background: rgba(255, 255, 255, 0.82);
-            border: 1px solid rgba(19, 32, 44, 0.08);
+            background: linear-gradient(180deg, rgba(31, 33, 38, 0.94) 0%, rgba(22, 24, 28, 0.94) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.07);
             border-radius: 22px;
             padding: 1.15rem 1.2rem;
-            box-shadow: 0 14px 30px rgba(19, 32, 44, 0.06);
+            box-shadow: 0 18px 32px rgba(0, 0, 0, 0.18);
             min-height: 100%;
         }
 
         .light-card h3 {
             margin: 0 0 0.7rem 0;
             font-size: 1rem;
-            color: #13202c;
+            color: #f4efe8;
         }
 
         .light-card p {
             margin: 0;
-            color: #506072;
+            color: #a8afb7;
             line-height: 1.65;
         }
 
         .light-card ul {
             margin: 0;
             padding-left: 1rem;
-            color: #506072;
+            color: #a8afb7;
             line-height: 1.7;
         }
 
         .dark-card {
-            background: linear-gradient(135deg, #13202c 0%, #203446 100%);
+            background: linear-gradient(145deg, #0a0b0d 0%, #13151a 100%);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             color: #f7f4ee;
             border-radius: 24px;
             padding: 1.35rem 1.4rem;
-            box-shadow: 0 18px 40px rgba(19, 32, 44, 0.16);
+            box-shadow: 0 22px 40px rgba(0, 0, 0, 0.28);
         }
 
         .dark-card h3 {
@@ -127,7 +129,7 @@ def inject_global_styles() -> None:
 
         .dark-card p,
         .dark-card li {
-            color: rgba(247, 244, 238, 0.92);
+            color: rgba(247, 244, 238, 0.88);
             line-height: 1.65;
         }
 
@@ -137,23 +139,23 @@ def inject_global_styles() -> None:
         }
 
         .glass-panel {
-            background: rgba(255, 255, 255, 0.78);
-            border: 1px solid rgba(19, 32, 44, 0.08);
+            background: linear-gradient(180deg, rgba(29, 32, 36, 0.92) 0%, rgba(22, 24, 28, 0.92) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.07);
             border-radius: 24px;
             padding: 1.2rem 1.25rem;
-            box-shadow: 0 14px 30px rgba(19, 32, 44, 0.06);
+            box-shadow: 0 18px 32px rgba(0, 0, 0, 0.18);
         }
 
         .result-shell {
-            background: rgba(255, 255, 255, 0.84);
-            border: 1px solid rgba(19, 32, 44, 0.08);
+            background: linear-gradient(180deg, rgba(29, 32, 36, 0.94) 0%, rgba(17, 19, 23, 0.94) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 26px;
             padding: 1.3rem 1.35rem;
-            box-shadow: 0 18px 34px rgba(19, 32, 44, 0.08);
+            box-shadow: 0 20px 36px rgba(0, 0, 0, 0.22);
         }
 
         .result-label {
-            color: #697889;
+            color: #9ea5ae;
             font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 0.08em;
@@ -165,45 +167,45 @@ def inject_global_styles() -> None:
             line-height: 1.15;
             letter-spacing: -0.04em;
             font-weight: 800;
-            color: #13202c;
+            color: #f6f1ea;
             margin-top: 0.45rem;
             margin-bottom: 0.6rem;
             word-break: break-word;
         }
 
         .placeholder-note {
-            background: rgba(255, 255, 255, 0.74);
-            border: 1px dashed rgba(19, 32, 44, 0.22);
+            background: rgba(24, 27, 31, 0.9);
+            border: 1px dashed rgba(255, 255, 255, 0.18);
             border-radius: 24px;
             padding: 1.25rem 1.35rem;
-            color: #516171;
+            color: #a7afb7;
         }
 
         .pill {
             display: inline-block;
             padding: 0.35rem 0.65rem;
             border-radius: 999px;
-            background: rgba(19, 32, 44, 0.08);
-            color: #203446;
+            background: rgba(255, 255, 255, 0.08);
+            color: #ece6de;
             font-size: 0.84rem;
             font-weight: 700;
             margin: 0.15rem 0.35rem 0.15rem 0;
         }
 
         .step-card {
-            background: rgba(255, 255, 255, 0.82);
-            border: 1px solid rgba(19, 32, 44, 0.08);
+            background: linear-gradient(180deg, rgba(30, 32, 37, 0.94) 0%, rgba(21, 23, 27, 0.94) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.07);
             border-radius: 22px;
             padding: 1.15rem 1.2rem;
-            box-shadow: 0 14px 30px rgba(19, 32, 44, 0.06);
+            box-shadow: 0 18px 32px rgba(0, 0, 0, 0.18);
         }
 
         .step-number {
             width: 2rem;
             height: 2rem;
             border-radius: 999px;
-            background: #13202c;
-            color: #f7f4ee;
+            background: #f0e7dc;
+            color: #101215;
             font-weight: 800;
             display: flex;
             align-items: center;
@@ -214,23 +216,23 @@ def inject_global_styles() -> None:
         .step-card h3 {
             margin: 0 0 0.55rem 0;
             font-size: 1rem;
-            color: #13202c;
+            color: #f4efe8;
         }
 
         .step-card p {
             margin: 0;
-            color: #506072;
+            color: #a8afb7;
             line-height: 1.65;
         }
 
         div[data-testid="stSelectbox"],
         div[data-testid="stTextArea"],
         div[data-testid="stNumberInput"] {
-            background: rgba(255, 255, 255, 0.72);
+            background: rgba(25, 27, 31, 0.92);
             border-radius: 18px;
             padding: 0.2rem 0.35rem 0.35rem 0.35rem;
-            border: 1px solid rgba(19, 32, 44, 0.08);
-            box-shadow: 0 10px 24px rgba(19, 32, 44, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.16);
         }
 
         div[data-testid="stButton"] > button,
@@ -238,16 +240,47 @@ def inject_global_styles() -> None:
         a[data-testid="stPageLink-NavLink"] {
             border-radius: 16px;
             min-height: 3rem;
-            border: 0;
-            box-shadow: 0 18px 36px rgba(19, 32, 44, 0.14);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: linear-gradient(180deg, #efe5d8 0%, #d7cbbb 100%);
+            color: #101215 !important;
+            box-shadow: 0 18px 36px rgba(0, 0, 0, 0.22);
+        }
+
+        div[data-testid="stButton"] > button *,
+        div[data-testid="stFormSubmitButton"] > button *,
+        div[data-testid="stButton"] > button p,
+        div[data-testid="stFormSubmitButton"] > button p,
+        div[data-testid="stButton"] > button span,
+        div[data-testid="stFormSubmitButton"] > button span {
+            color: #101215 !important;
+        }
+
+        a[data-testid="stPageLink-NavLink"] *,
+        a[data-testid="stPageLink-NavLink"] p,
+        a[data-testid="stPageLink-NavLink"] span {
+            color: #101215 !important;
         }
 
         div[data-testid="metric-container"] {
-            background: rgba(255, 255, 255, 0.74);
-            border: 1px solid rgba(19, 32, 44, 0.08);
+            background: rgba(24, 27, 31, 0.92);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             padding: 0.9rem 1rem;
             border-radius: 18px;
-            box-shadow: 0 10px 22px rgba(19, 32, 44, 0.05);
+            box-shadow: 0 12px 22px rgba(0, 0, 0, 0.18);
+        }
+
+        label, .stMarkdown, .stText, p, li, div[data-testid="stMetricLabel"] {
+            color: #ece7df !important;
+        }
+
+        div[data-baseweb="select"] > div,
+        input,
+        textarea {
+            color: #f5efe8 !important;
+        }
+
+        div[data-baseweb="select"] svg {
+            fill: #f5efe8;
         }
         </style>
         """,
@@ -271,7 +304,8 @@ def render_hero(eyebrow: str, title: str, body: str) -> None:
 def render_section_title(title: str, note: str | None = None) -> None:
     st.markdown(f'<div class="section-title">{html.escape(title)}</div>', unsafe_allow_html=True)
     if note:
-        st.markdown(f'<div class="section-note">{html.escape(note)}</div>', unsafe_allow_html=True)
+        note_html = html.escape(note).replace("\n", "<br>")
+        st.markdown(f'<div class="section-note">{note_html}</div>', unsafe_allow_html=True)
 
 
 def render_light_card(title: str, text: str | None = None, items: list[str] | None = None) -> None:

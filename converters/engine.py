@@ -91,7 +91,7 @@ def convert(conversion_key: str, values: dict[str, object]) -> dict[str, object]
         days = hours / hours_per_day
         weeks = days / days_per_week
         return _result(
-            "Charge de travail estimee",
+            "Charge de travail estimée",
             f"{_round(days, 2)} jours",
             [
                 ("Semaines", f"{_round(weeks, 2)}"),
@@ -99,8 +99,8 @@ def convert(conversion_key: str, values: dict[str, object]) -> dict[str, object]
                 ("Jours / semaine", f"{_round(days_per_week, 2)}"),
             ],
             [
-                f"{_round(hours, 2)} heures correspondent a environ {_round(days, 2)} jours de travail.",
-                f"Au rythme choisi, cela represente {_round(weeks, 2)} semaine(s).",
+                f"{_round(hours, 2)} heures correspondent à environ {_round(days, 2)} jours de travail.",
+                f"Au rythme choisi, cela représente {_round(weeks, 2)} semaine(s).",
             ],
         )
 
@@ -110,16 +110,16 @@ def convert(conversion_key: str, values: dict[str, object]) -> dict[str, object]
         monthly_hours = minutes_saved_per_day * workdays_per_month / 60
         equivalent_days = monthly_hours / 7
         return _result(
-            "Temps economise par mois",
+            "Temps économisé par mois",
             _format_hours_minutes(monthly_hours),
             [
                 ("Heures / mois", f"{_round(monthly_hours, 2)} h"),
                 ("Jours de 7 h", f"{_round(equivalent_days, 2)}"),
-                ("Jours travailles", f"{_round(workdays_per_month, 0)}"),
+                ("Jours travaillés", f"{_round(workdays_per_month, 0)}"),
             ],
             [
-                f"Une economie quotidienne de {_round(minutes_saved_per_day, 2)} min libere {_round(monthly_hours, 2)} heures par mois.",
-                f"Cela equivaut a environ {_round(equivalent_days, 2)} jour(s) de travail de 7 heures.",
+                f"Une économie quotidienne de {_round(minutes_saved_per_day, 2)} min libère {_round(monthly_hours, 2)} heures par mois.",
+                f"Cela équivaut à environ {_round(equivalent_days, 2)} jour(s) de travail de 7 heures.",
             ],
         )
 
@@ -129,16 +129,16 @@ def convert(conversion_key: str, values: dict[str, object]) -> dict[str, object]
         calendar_days = business_days * 7 / business_days_per_week
         extra_days = calendar_days - business_days
         return _result(
-            "Delai reel estime",
+            "Délai réel estimé",
             f"{math.ceil(calendar_days)} jours calendaires",
             [
-                ("Estimation precise", f"{_round(calendar_days, 2)} jours"),
+                ("Estimation précise", f"{_round(calendar_days, 2)} jours"),
                 ("Week-end inclus", f"+{_round(extra_days, 2)} jours"),
                 ("Base hebdo", f"{_round(business_days_per_week, 0)} jours ouvrables"),
             ],
             [
-                f"{_round(business_days, 0)} jours ouvrables correspondent a environ {_round(calendar_days, 2)} jours calendaires.",
-                "Le calcul est une estimation lineaire qui inclut les week-ends mais pas les jours feries.",
+                f"{_round(business_days, 0)} jours ouvrables correspondent à environ {_round(calendar_days, 2)} jours calendaires.",
+                "Le calcul est une estimation linéaire qui inclut les week-ends mais pas les jours fériés.",
             ],
         )
 
@@ -150,16 +150,16 @@ def convert(conversion_key: str, values: dict[str, object]) -> dict[str, object]
         annual_net = net_salary * 12 if salary_period == "Mensuel" else net_salary
         monthly_net = annual_net / 12
         return _result(
-            "Salaire net estime",
+            "Salaire net estimé",
             _format_currency(net_salary),
             [
-                ("Periode", salary_period),
-                ("Net mensuel estime", _format_currency(monthly_net)),
-                ("Net annuel estime", _format_currency(annual_net)),
+                ("Période", salary_period),
+                ("Net mensuel estimé", _format_currency(monthly_net)),
+                ("Net annuel estimé", _format_currency(annual_net)),
             ],
             [
-                f"Avec une retenue estimee de {deduction_rate * 100:.0f} %, le net ressort a {_format_currency(net_salary)} sur la base {salary_period.lower()}.",
-                "Cette conversion reste indicative et depend du pays, du statut et des avantages.",
+                f"Avec une retenue estimée de {deduction_rate * 100:.0f} %, le net ressort à {_format_currency(net_salary)} sur la base {salary_period.lower()}.",
+                "Cette conversion reste indicative et dépend du pays, du statut et des avantages.",
             ],
         )
 
@@ -175,7 +175,7 @@ def convert(conversion_key: str, values: dict[str, object]) -> dict[str, object]
                 ("Hebdomadaire moyen", _format_currency(annual_cost / 52)),
             ],
             [
-                f"Une depense de {_format_currency(monthly_cost)} par mois represente {_format_currency(annual_cost)} par an.",
+                f"Une dépense de {_format_currency(monthly_cost)} par mois représente {_format_currency(annual_cost)} par an.",
             ],
         )
 
@@ -183,7 +183,7 @@ def convert(conversion_key: str, values: dict[str, object]) -> dict[str, object]
         annual_cost = float(values["annual_cost"])
         monthly_cost = annual_cost / 12
         return _result(
-            "Equivalent mensuel",
+            "Équivalent mensuel",
             _format_currency(monthly_cost),
             [
                 ("Annuel", _format_currency(annual_cost)),
@@ -191,7 +191,7 @@ def convert(conversion_key: str, values: dict[str, object]) -> dict[str, object]
                 ("Journalier moyen", _format_currency(annual_cost / 365)),
             ],
             [
-                f"Un engagement annuel de {_format_currency(annual_cost)} revient a environ {_format_currency(monthly_cost)} par mois.",
+                f"Un engagement annuel de {_format_currency(annual_cost)} revient à environ {_format_currency(monthly_cost)} par mois.",
             ],
         )
 
@@ -202,7 +202,7 @@ def convert(conversion_key: str, values: dict[str, object]) -> dict[str, object]
         monthly_kwh = (power_watts / 1000) * hours_per_day * DAYS_PER_MONTH
         monthly_cost = monthly_kwh * price_per_kwh
         return _result(
-            "Cout mensuel estime",
+            "Coût mensuel estimé",
             _format_currency(monthly_cost),
             [
                 ("Consommation / mois", f"{_round(monthly_kwh, 2)} kWh"),
@@ -211,7 +211,7 @@ def convert(conversion_key: str, values: dict[str, object]) -> dict[str, object]
             ],
             [
                 f"Un appareil de {_round(power_watts, 0)} W utilise {_round(monthly_kwh, 2)} kWh par mois.",
-                f"Au tarif choisi, cela represente {_format_currency(monthly_cost)} par mois.",
+                f"Au tarif choisi, cela représente {_format_currency(monthly_cost)} par mois.",
             ],
         )
 
@@ -222,16 +222,16 @@ def convert(conversion_key: str, values: dict[str, object]) -> dict[str, object]
         liters_used = distance_km * liters_per_100km / 100
         trip_cost = liters_used * fuel_price
         return _result(
-            "Cout du trajet",
+            "Coût du trajet",
             _format_currency(trip_cost),
             [
-                ("Litres consommes", f"{_round(liters_used, 2)} L"),
+                ("Litres consommés", f"{_round(liters_used, 2)} L"),
                 ("Distance", f"{_round(distance_km, 0)} km"),
                 ("Prix / litre", _format_currency(fuel_price)),
             ],
             [
-                f"Pour {_round(distance_km, 0)} km, le vehicule consommera environ {_round(liters_used, 2)} L.",
-                f"Le cout carburant estime est de {_format_currency(trip_cost)}.",
+                f"Pour {_round(distance_km, 0)} km, le véhicule consommera environ {_round(liters_used, 2)} L.",
+                f"Le coût carburant estimé est de {_format_currency(trip_cost)}.",
             ],
         )
 
@@ -246,16 +246,16 @@ def convert(conversion_key: str, values: dict[str, object]) -> dict[str, object]
         bits_per_second = speed_value * speed_multipliers[speed_unit]
         seconds = total_bits / bits_per_second if bits_per_second else 0
         return _result(
-            "Temps de telechargement estime",
+            "Temps de téléchargement estimé",
             _format_duration(seconds),
             [
                 ("Taille", f"{_round(file_size, 2)} {file_size_unit}"),
-                ("Debit", f"{_round(speed_value, 2)} {speed_unit}"),
+                ("Débit", f"{_round(speed_value, 2)} {speed_unit}"),
                 ("Secondes", f"{_round(seconds, 2)} s"),
             ],
             [
-                "Le resultat est theorique et ne prend pas en compte la latence, les variations reseau ni les pertes.",
-                f"A debit constant, le transfert prend environ {_format_duration(seconds)}.",
+                "Le résultat est théorique et ne prend pas en compte la latence, les variations réseau ni les pertes.",
+                f"À débit constant, le transfert prend environ {_format_duration(seconds)}.",
             ],
         )
 
@@ -266,16 +266,16 @@ def convert(conversion_key: str, values: dict[str, object]) -> dict[str, object]
         person_hours = (meeting_minutes / 60) * participants
         meeting_cost = person_hours * hourly_cost
         return _result(
-            "Cout total de la reunion",
+            "Coût total de la réunion",
             _format_currency(meeting_cost),
             [
-                ("Heures cumulees", f"{_round(person_hours, 2)} h"),
+                ("Heures cumulées", f"{_round(person_hours, 2)} h"),
                 ("Participants", f"{_round(participants, 0)}"),
-                ("Cout horaire", _format_currency(hourly_cost)),
+                ("Coût horaire", _format_currency(hourly_cost)),
             ],
             [
-                f"Une reunion de {_round(meeting_minutes, 0)} minutes mobilise {_round(person_hours, 2)} heures cumulees.",
-                f"A ce cout horaire moyen, cela represente {_format_currency(meeting_cost)} de temps mobilise.",
+                f"Une réunion de {_round(meeting_minutes, 0)} minutes mobilise {_round(person_hours, 2)} heures cumulées.",
+                f"À ce coût horaire moyen, cela représente {_format_currency(meeting_cost)} de temps mobilisé.",
             ],
         )
 
@@ -286,16 +286,16 @@ def convert(conversion_key: str, values: dict[str, object]) -> dict[str, object]
         weekly_hours = emails_per_day * minutes_per_email * workdays_per_week / 60
         monthly_hours = weekly_hours * WEEKS_PER_MONTH
         return _result(
-            "Temps email par semaine",
+            "Temps e-mail par semaine",
             _format_hours_minutes(weekly_hours),
             [
                 ("Heures / semaine", f"{_round(weekly_hours, 2)} h"),
                 ("Heures / mois", f"{_round(monthly_hours, 2)} h"),
-                ("Emails / jour", f"{_round(emails_per_day, 0)}"),
+                ("E-mails / jour", f"{_round(emails_per_day, 0)}"),
             ],
             [
-                f"A ce rythme, les emails consomment environ {_round(weekly_hours, 2)} heures par semaine.",
-                f"Sur un mois moyen, cela represente {_round(monthly_hours, 2)} heures.",
+                f"À ce rythme, les e-mails consomment environ {_round(weekly_hours, 2)} heures par semaine.",
+                f"Sur un mois moyen, cela représente {_round(monthly_hours, 2)} heures.",
             ],
         )
 
@@ -305,22 +305,22 @@ def convert(conversion_key: str, values: dict[str, object]) -> dict[str, object]
         monthly_hours = minutes_per_task * tasks_per_week * WEEKS_PER_MONTH / 60
         yearly_hours = monthly_hours * 12
         return _result(
-            "Charge mensuelle estimee",
+            "Charge mensuelle estimée",
             _format_hours_minutes(monthly_hours),
             [
                 ("Heures / mois", f"{_round(monthly_hours, 2)} h"),
                 ("Heures / an", f"{_round(yearly_hours, 2)} h"),
-                ("Taches / semaine", f"{_round(tasks_per_week, 0)}"),
+                ("Tâches / semaine", f"{_round(tasks_per_week, 0)}"),
             ],
             [
-                f"Une tache de {_round(minutes_per_task, 0)} minutes repetee {_round(tasks_per_week, 0)} fois par semaine finit par peser {_round(monthly_hours, 2)} heures par mois.",
+                f"Une tâche de {_round(minutes_per_task, 0)} minutes répétée {_round(tasks_per_week, 0)} fois par semaine finit par peser {_round(monthly_hours, 2)} heures par mois.",
             ],
         )
 
     if conversion_key == "text_to_word_count":
         text = str(values["text"]).strip()
         if not text:
-            raise ValueError("Veuillez coller un texte a analyser.")
+            raise ValueError("Veuillez coller un texte à analyser.")
         word_count = _count_words(text)
         char_count = len(text)
         reading_minutes = word_count / 200
@@ -329,12 +329,12 @@ def convert(conversion_key: str, values: dict[str, object]) -> dict[str, object]
             "Volume du texte",
             f"{word_count} mots",
             [
-                ("Caracteres", f"{char_count}"),
+                ("Caractères", f"{char_count}"),
                 ("Lecture moyenne", _format_hours_minutes(reading_minutes)),
-                ("Lecture a voix haute", _format_hours_minutes(speaking_minutes)),
+                ("Lecture à voix haute", _format_hours_minutes(speaking_minutes)),
             ],
             [
-                "Le comptage repose sur une separation simple des mots.",
+                "Le comptage repose sur une séparation simple des mots.",
                 f"Un texte de {word_count} mots se lit en environ {_format_hours_minutes(reading_minutes)}.",
             ],
         )
@@ -344,38 +344,38 @@ def convert(conversion_key: str, values: dict[str, object]) -> dict[str, object]
         reading_speed = float(values["reading_speed"])
         reading_minutes = word_count / reading_speed
         return _result(
-            "Temps de lecture estime",
+            "Temps de lecture estimé",
             _format_hours_minutes(reading_minutes),
             [
                 ("Mots", f"{_round(word_count, 0)}"),
                 ("Vitesse", f"{_round(reading_speed, 0)} mots/min"),
-                ("Minutes precises", f"{_round(reading_minutes, 2)}"),
+                ("Minutes précises", f"{_round(reading_minutes, 2)}"),
             ],
             [
-                f"A {_round(reading_speed, 0)} mots par minute, {_round(word_count, 0)} mots demandent environ {_round(reading_minutes, 2)} minutes de lecture.",
+                f"À {_round(reading_speed, 0)} mots par minute, {_round(word_count, 0)} mots demandent environ {_round(reading_minutes, 2)} minutes de lecture.",
             ],
         )
 
     if conversion_key == "text_to_short_summary":
         text = str(values["text"]).strip()
         if not text:
-            raise ValueError("Veuillez coller un texte a resumer.")
+            raise ValueError("Veuillez coller un texte à résumer.")
         summary_sentences = int(float(values["summary_sentences"]))
         summary = _summarize_text(text, summary_sentences)
         original_words = _count_words(text)
         summary_words = _count_words(summary)
         compression = 100 - ((summary_words / original_words) * 100) if original_words else 0
         return _result(
-            "Resume court",
+            "Résumé court",
             summary,
             [
                 ("Mots source", f"{original_words}"),
-                ("Mots resume", f"{summary_words}"),
+                ("Mots résumé", f"{summary_words}"),
                 ("Compression", f"{_round(compression, 1)} %"),
             ],
             [
-                "Le resume est genere localement avec une heuristique simple, sans modele externe.",
-                "Pour un vrai resume semantique, il faudrait une logique NLP plus evoluee ou un modele.",
+                "Le résumé est généré localement avec une heuristique simple, sans modèle externe.",
+                "Pour un vrai résumé sémantique, il faudrait une logique NLP plus évoluée ou un modèle.",
             ],
         )
 
